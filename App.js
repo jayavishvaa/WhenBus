@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View,Text,TouchableOpacity} from 'react-native';
+import Header from './Constants/Header';
+import Screen from './Constants/Screen';
+import MapNavigation from './Components/Screens/MapView';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from "@react-navigation/stack";
+import routes from './Components/routes';
+import ChooseLocation from './Components/Screens/ChooseLocation';
+import FlashMessage from "react-native-flash-message";
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function App(props) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name={routes.MAPNAVIGATION} component={MapNavigation}/>
+        <Stack.Screen name={routes.CHOOSELOCATION} component={ChooseLocation}/>
+      </Stack.Navigator>
+      <FlashMessage position="top"/>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
