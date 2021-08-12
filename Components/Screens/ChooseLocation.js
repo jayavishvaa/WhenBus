@@ -14,6 +14,8 @@ function ChooseLocation({navigation},props) {
     })
 
     const {pickupCoords,destinationCoords} = state;
+    
+    // Checking the pickup and drop fields that it is not empty
 
     const checkValid = () => {
         if (Object.keys(pickupCoords).length === 0)
@@ -29,6 +31,8 @@ function ChooseLocation({navigation},props) {
         }
         return true
     }
+    
+    // if valid sending the pickup and drop coordinates using params to the mapview screen
 
     const onDone =() => {
         const isValid = checkValid();
@@ -43,6 +47,8 @@ function ChooseLocation({navigation},props) {
             navigation.goBack();
         }
     }
+    
+    // fetching the pickup coordinates from the console by debugging 
 
     const fetchAddressCoords = (lat,lng) => {
         setState({
@@ -52,6 +58,8 @@ function ChooseLocation({navigation},props) {
             }
         })
     }
+    
+    // fetching the drop coordinates from the console by debugging 
 
     const fetchDestinationCoords = (lat,lng) => {
         setState({
@@ -64,15 +72,12 @@ function ChooseLocation({navigation},props) {
 
     console.log("Props>>>>",props);
 
-    // console.log("Pickup:",pickupCoords);
-    // console.log("drop:",destinationCoords);
-
 
     return (
         <Screen>
             <Header/>
             <View style={styles.Container}>
-                <ScrollView 
+                <ScrollView                      
                     keyboardShouldPersistTaps="handled"
                     style={{backgroundColor:'white',flex:1,padding:24}}
                 >
