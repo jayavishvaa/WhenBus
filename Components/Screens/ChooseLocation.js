@@ -94,7 +94,8 @@ function ChooseLocation({navigation},props) {
                     />
 
                     <View style={{flex:1,marginTop:'5%'}}>
-                        <TouchableOpacity style={styles.Btn} onPress={onDone}>   // Onpress sending the coordinates to the mapviews using params and diplaying
+                        <TouchableOpacity style={styles.Btn} onPress={onDone}   // Onpress sending the coordinates to the mapviews using params and diplaying
+                        >
                             <Text>Done</Text>
                         </TouchableOpacity>
                     </View>
