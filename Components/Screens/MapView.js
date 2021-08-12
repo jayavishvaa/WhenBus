@@ -8,12 +8,17 @@ import MapViewDirections from 'react-native-maps-directions';
 import {GOOGLE_MAP_KEY} from '../../Constants/googleMapKey';
 import routes from '../routes';
 
+
+// Home page with mapview using React native maps
+
 export default function MapNavigation({navigation}) {
 
     const [location,setLocation] = useState(null);
     const [errMsg,setErrMsg] = useState(null);
 
     const [pin,setPin] = useState(null);
+    
+        // Setting the sample coordinates 
 
     const [ state,setState] = useState({
 
@@ -51,8 +56,6 @@ export default function MapNavigation({navigation}) {
         console.log("data>>>>",data)
     }
 
-    // const GOOGLE_MAPS_KEY = "AIzaSyCAp3pSIZTH2v9BiY6lGlf8qJWOgTbDL04";
-
     const { pickupCords, dropCords } = state;
 
     const mapRef = useRef();
@@ -61,11 +64,16 @@ export default function MapNavigation({navigation}) {
         <Screen>
         <Header/>
         <View style={{flex:1}}>
+        
+            // Mapview using react native maps
+        
             <MapView
                 ref={mapRef}
-                initialRegion={pickupCords}
+                initialRegion={pickupCords}             // Getting initial coordinates from the state defined
                 style={StyleSheet.absoluteFill}
             >
+                // React native map direction gives the direction route of 2 coordinate using Google Api with Billing account
+                    
                 <MapViewDirections
                     origin={pickupCords}
                     destination={dropCords}
@@ -73,7 +81,7 @@ export default function MapNavigation({navigation}) {
                     strokeWidth={5}
                     strokeColor="red"
                     optimizeWaypoints={true}
-                    onReady={result => {
+                    onReady={result => {                                      // Changing the Screen aspect ratio depending on the given two coordinates
                         mapRef.current.fitToCoordinates(result.coordinates,{
                             edgePadding: {
                                 right: 30,
@@ -85,7 +93,7 @@ export default function MapNavigation({navigation}) {
                     }}
                 />
 
-                <Marker
+                <Marker                            // Markers are used to display the pickup and drop points in the mapview
                     coordinate={pickupCords}
                 />
                 <Marker
@@ -93,6 +101,9 @@ export default function MapNavigation({navigation}) {
                 />
             </MapView>     
         </View>
+
+        // Bottom sheet where the navigation to choose Location page
+
         <View style={styles.BottomSheet}>
             <Text>Where are u going....?</Text>
             <TouchableOpacity style={styles.ChooseBtn} onPress={onPressLocation}>
