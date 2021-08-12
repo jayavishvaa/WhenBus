@@ -102,7 +102,8 @@ export default function MapNavigation({navigation}) {
             </MapView>     
         </View>
 
-        <View style={styles.BottomSheet}>               //Bottom sheet where the navigation to choose Location page
+        <View style={styles.BottomSheet}               //Bottom sheet where the navigation to choose Location page
+        >
             <Text>Where are u going....?</Text>
             <TouchableOpacity style={styles.ChooseBtn} onPress={onPressLocation}>
                 <Text>Choose the location</Text>
