@@ -4,6 +4,9 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { GOOGLE_MAP_KEY } from '../Constants/googleMapKey';
 
 function AddressPickup({placeholderText,fetchAddress}) {
+    
+    
+    // Fetching the coordinates from the user 
 
     const onPressAddress = (data,details) => {
         console.log(details);
@@ -15,7 +18,7 @@ function AddressPickup({placeholderText,fetchAddress}) {
 
     return (
         <View style={styles.Container}>
-            <GooglePlacesAutocomplete
+            <GooglePlacesAutocomplete          // Using Google Places autocomplete using google API with billing account so that if we type something we will get a recommandation
                 placeholder={placeholderText}
                 onPress={onPressAddress}
                 fetchDetails={true}
