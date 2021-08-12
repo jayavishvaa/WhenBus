@@ -18,7 +18,7 @@ function AddressPickup({placeholderText,fetchAddress}) {
 
     return (
         <View style={styles.Container}>
-            <GooglePlacesAutocomplete          // Using Google Places autocomplete using google API with billing account so that if we type something we will get a recommandation
+            <GooglePlacesAutocomplete          // Using Google Places autocomplete using google API with billing account so that if we type something we will get a google recommandation
                 placeholder={placeholderText}
                 onPress={onPressAddress}
                 fetchDetails={true}
