@@ -81,20 +81,20 @@ function ChooseLocation({navigation},props) {
                     keyboardShouldPersistTaps="handled"
                     style={{backgroundColor:'white',flex:1,padding:24}}
                 >
-                    <AddressPickup
-                        placeholderText="Choose your pickup location"
+                    <AddressPickup                  // Address pickup was coded separatly and using here multiple times
+                        placeholderText="Choose your pickup location"     // Pickup field
                         fetchAddress={fetchAddressCoords }
                     />
 
                     <View style={{marginBottom:'5%'}}/>
 
                     <AddressPickup
-                        placeholderText="Choose your Drop location"
+                        placeholderText="Choose your Drop location"   // Drop field
                         fetchAddress={fetchDestinationCoords }
                     />
 
                     <View style={{flex:1,marginTop:'5%'}}>
-                        <TouchableOpacity style={styles.Btn} onPress={onDone}>
+                        <TouchableOpacity style={styles.Btn} onPress={onDone}>   // Onpress sending the coordinates to the mapviews using params and diplaying
                             <Text>Done</Text>
                         </TouchableOpacity>
                     </View>
